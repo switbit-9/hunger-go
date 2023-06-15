@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "pizza-delivery"
+version = "0.1.0"
+description = ""
+authors = ["sehar <boricisehar@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pizza_delivery"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+alembic = "1.11.1"
+fastapi = "0.96.0"
+uvicorn = '0.22.0'
+psycopg2-binary = '2.9.6'
+SQLAlchemy = "2.0.15"
+fastapi-jwt-auth  = "0.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
