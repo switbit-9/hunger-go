@@ -1,11 +1,13 @@
+from fastapi import status, Query, Path, APIRouter, Depends
 from fastapi_jwt_auth import AuthJWT
-from fastapi import Depends, status
-from fastapi.exceptions import HTTPException
-from datetime import datetime
-from fastapi import APIRouter, Depends, Path, Query
-from database import Session, engine
-from models import Restaurant
 from fastapi.encoders import jsonable_encoder
+from fastapi.exceptions import HTTPException
+from app.database import Session, engine
+from app.models import Restaurant
+from pydantic.typing import Annotated, Union, List
+from sqlalchemy.orm import joinedload
+
+
 
 session = Session(bind=engine)
 

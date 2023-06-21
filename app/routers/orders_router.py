@@ -1,14 +1,10 @@
 from .base import *
-from schemas import User, GetOrders, OrderItem, CreateOrders
-from schemas import CreateOrders, UpdateOrderStatus
+from app.schemas import User, GetOrders, OrderItem
+from app.schemas import CreateOrders, UpdateOrderStatus
 from fastapi.exceptions import HTTPException
-from fastapi_jwt_auth import AuthJWT
-from fastapi import status
-from models import Orders, User, OrderItem
-from fastapi.encoders import jsonable_encoder
-from .base import check_authorization, session, from_query_to_list, from_query_to_object
-from sqlalchemy.orm import joinedload
-from pydantic.typing import Annotated, Union
+from app.models import Orders, User, OrderItem
+
+
 
 order_router = APIRouter(
     prefix='/order',

@@ -1,14 +1,7 @@
-from fastapi import APIRouter, Depends
-from fastapi.exceptions import HTTPException
-from fastapi_jwt_auth import AuthJWT
-from fastapi import status, Query, Path
-from schemas import CreateFoodItem, GetFoodItem, CreateCategory, GetOrders, UpdateFoodItem
-from models import Restaurant, User, FoodItem, FoodCategory, Orders
-from database import Session, engine
-from fastapi.encoders import jsonable_encoder
+from .base import *
+from app.schemas import CreateFoodItem, CreateCategory, UpdateFoodItem
+from app.models import FoodItem, FoodCategory, Orders
 from sqlalchemy.orm import joinedload
-from typing import Annotated
-from .base import check_shop_authorization, session, from_query_to_list, from_query_to_object
 
 
 shop_router = APIRouter(

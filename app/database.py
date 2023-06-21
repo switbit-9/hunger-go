@@ -7,10 +7,10 @@ from sqlalchemy.exc import DBAPIError
 
 url_object = URL.create(
     "postgresql",
-    username="postgres",
-    password="1234",  # plain (unescaped) text
-    host="localhost",
-    database="pizza_delivery",
+    username=os.environ.get("DB_USER"),
+    password=os.environ.get("DB_USER_PASSWORD"),  # plain (unescaped) text
+    host=os.environ.get("DB_HOST"),
+    database=os.environ.get("DB_NAME"),
 )
 
 # database_str = 'postgresql://' + os.environ.get('DB_HOST') + ":" + os.environ.get('DB_USER_PASSWORD') + "@" + os.environ.get('DB_HOST') + "/" + os.environ.get("DB_NaDB_NAMEm")

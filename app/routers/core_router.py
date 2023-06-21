@@ -1,15 +1,7 @@
-from fastapi import APIRouter, Depends, Path, Query
-from fastapi.exceptions import HTTPException
-from fastapi_jwt_auth import AuthJWT
-from fastapi import status
+from .base import *
 from sqlalchemy import or_
-from sqlalchemy.orm import joinedload
-from schemas import GetRestaurant, GetCategories, GetFoodItem, GetRestaurantModel
-from models import Restaurant, User, FoodItem, FoodCategory
-from database import Session, engine
-from fastapi.encoders import jsonable_encoder
-from pydantic.typing import List, Annotated, Union
-from .base import check_authorization,  from_query_to_object, from_query_to_list, session
+from app.schemas import GetRestaurant, GetCategories, GetFoodItem, GetRestaurantModel
+from app.models import Restaurant, FoodItem, FoodCategory
 
 core_router = APIRouter(
     prefix='',

@@ -1,9 +1,11 @@
-from routers.auth_routes import auth_router
-from routers.orders_router import order_router
-from routers.shop_routes import shop_router
-from routers.core_router import core_router
+import os
+
+from app.routers.auth_routes import auth_router
+from app.routers.orders_router import order_router
+from app.routers.shop_router import shop_router
+from app.routers.core_router import core_router
 from fastapi_jwt_auth import AuthJWT
-from schemas import Settings
+from pydantic import BaseModel
 import inspect, re
 from fastapi import FastAPI
 from fastapi.routing import APIRoute
@@ -17,12 +19,13 @@ app.include_router(shop_router)
 app.include_router(core_router)
 
 
+class Settings(BaseModel):
+    authjwt_secret_key : str = os.environ.get("SECRET_TOKEN_KEY")
+
+
 @AuthJWT.load_config
 def get_settings():
     return Settings()
-
-
-
 
 def custom_openapi():
     if app.openapi_schema:

@@ -1,14 +1,12 @@
 import datetime
 from fastapi import APIRouter, status, Depends
-from schemas import CreateRestaurant, LoginRestaurant, CreateUser, LoginForm
-from models import User, Restaurant
-from database import Session, engine
+from app.schemas import CreateRestaurant, LoginRestaurant, CreateUser, LoginForm
+from app.models import User, Restaurant
 from fastapi.exceptions import HTTPException
 from werkzeug.security import generate_password_hash, check_password_hash
 from fastapi_jwt_auth import AuthJWT
 from fastapi.encoders import jsonable_encoder
-from .shop_routes import shop_router
-from .base import check_authorization, handle_refresh_token, session
+from .base import handle_refresh_token, session
 
 auth_router = APIRouter(
     prefix='/auth',

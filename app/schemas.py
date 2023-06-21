@@ -3,8 +3,6 @@ from pydantic.typing import Optional, Union, List
 from datetime import datetime
 from pydantic.typing import Annotated
 
-class Settings(BaseModel):
-    authjwt_secret_key : str = '27f46e5b1b4208c4973a00ee240f2136817913b96a1401b4da7b74676f89a173'
 
 
 
@@ -176,9 +174,6 @@ class UpdateOrderStatus(BaseModel):
                 'order_status' : "CANCEL"
             }
         }
-
-
-
 
 
 class _BaseFoodItem(BaseModel):
